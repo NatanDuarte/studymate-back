@@ -6,7 +6,7 @@ const jsonSecret = require('../config/jsonSecret');
 class AuthService {
     async login(dto) {
         const user = await db.Users.findOne({
-            attributes: ['id', 'email', 'password'],
+            attributes: ['name', 'id', 'email', 'password'],
             where: {
                 email: dto.email
             }
@@ -25,7 +25,7 @@ class AuthService {
             expiresIn: 60000
         });
 
-        return { accessToken };
+        return { access_token: accessToken, username: user.name, email: user.email };
     }
 }
 
