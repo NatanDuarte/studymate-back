@@ -17,7 +17,7 @@
 							"script": {
 								"exec": [
 									"const res = JSON.parse(responseBody);\r",
-									"postman.setEnvironmentVariable(\"authToken\", res.accessToken);"
+									"postman.setEnvironmentVariable(\"access_token\", res.access_token);"
 								],
 								"type": "text/javascript"
 							}
@@ -66,7 +66,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -95,7 +95,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -104,7 +104,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"name\": \"admin\",\r\n\t\"email\": \"admin@topics.com\",\r\n\t\"password\": \"test123\"\r\n}",
+							"raw": "{\r\n\t\"name\": \"tester\",\r\n\t\"email\": \"admin@topics.com\",\r\n\t\"password\": \"test123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -133,7 +133,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -172,7 +172,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -180,7 +180,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/users/89048260-cb7a-4824-ae81-050c580440c4",
+							"raw": "http://localhost:3000/users/8c0641ab-24f0-4320-8496-9d3c24f21ff4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -188,7 +188,7 @@
 							"port": "3000",
 							"path": [
 								"users",
-								"89048260-cb7a-4824-ae81-050c580440c4"
+								"8c0641ab-24f0-4320-8496-9d3c24f21ff4"
 							]
 						}
 					},
@@ -202,7 +202,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -237,7 +237,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -246,7 +246,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"dev\",\r\n    \"description\": \"A developer account.\"\r\n}",
+							"raw": "{\r\n    \"name\": \"user\",\r\n    \"description\": \"Default user.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -275,7 +275,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -304,7 +304,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -334,7 +334,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -364,7 +364,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -408,7 +408,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -417,7 +417,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"admin\",\r\n    \"description\": \"can edit things.\"\r\n}",
+							"raw": "{\r\n    \"name\": \"list\",\r\n    \"description\": \"can list things\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -446,7 +446,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -475,7 +475,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -483,7 +483,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/permission/338b59c9-7844-4dc8-83e1-44ce58063f54",
+							"raw": "http://localhost:3000/permission/9e4a3565-accb-47d8-a7e4-71d19b153d96",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -491,7 +491,7 @@
 							"port": "3000",
 							"path": [
 								"permission",
-								"338b59c9-7844-4dc8-83e1-44ce58063f54"
+								"9e4a3565-accb-47d8-a7e4-71d19b153d96"
 							]
 						}
 					},
@@ -505,7 +505,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -535,7 +535,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -579,7 +579,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "{{authToken}}",
+									"value": "{{access_token}}",
 									"type": "string"
 								}
 							]
@@ -588,7 +588,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"roles\": [\"f299747f-4f80-4dbc-bb46-f1716fb3e86a\"],\r\n    \"permissions\": [\"1ed5dad5-1833-433e-8356-db68cfccd0c6\"]\r\n}",
+							"raw": "{\r\n    \"roles\": [\"8e945d37-98d1-4ea7-b3fd-8484bfce74de\"],\r\n    \"permissions\": [\"36276c6d-fb2a-415c-91b6-7e842ae727f6\"]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -605,6 +605,45 @@
 							"path": [
 								"security",
 								"acl"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register_permission_roles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roleId\": \"312cc480-6c90-4213-a941-1c19382fbb19\",\r\n    \"permissions\": [\"9dd75f63-5acd-4612-b551-ded2d3288ebe\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/security/permission-roles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"security",
+								"permission-roles"
 							]
 						}
 					},
