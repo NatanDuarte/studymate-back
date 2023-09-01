@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     permission_id: DataTypes.UUID
   }, {
     sequelize,
-    modelName: 'roles_permission',
+    modelName: 'roles_permissions',
   });
   return roles_permission;
 };
