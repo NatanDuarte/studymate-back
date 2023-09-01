@@ -1,14 +1,53 @@
 # Study Mate - Backend
 
-Instructions
+Backend API for Final Year Practical Project.
 
-* install dependencies: `yarn install`
+## Running locally
 
-* `npx sequelize init`
+* install dependencies:
 
-* `npx sequelize db:create `
+```shell
+yarn install
+```
 
-* migrate database (make sure database is running and
-configured): `npx sequelize db:migrate`
+* rename the file `config.example.json` (path: ./api/config) to
+`config.json` and set your database credentials as well.
 
-* run dev environment: `yarn dev`
+* create a .env file in the root directory with:
+
+```shell
+PORT=3000 # your application port
+DEV_SECRET=some_really_difficult_secret_for_token_authentication
+```
+
+* then create the database and migrate:
+
+```shell
+npx sequelize db:create
+
+npx sequelize db:migrate
+```
+
+* run dev environment
+
+```shell
+yarn dev
+```
+
+# Testing
+
+You can test the endpoints using both postman collection and
+environment provided [here](./postman/) (the `postman` folder).
+
+### ⚠️ Dropping the database 💀
+
+In case you need to drop the database to fix some issue on the tables,
+run the following commands:
+
+```shell
+npx sequelize db:drop
+
+npx sequelize db:create
+
+npx sequelize db:migrate
+```
