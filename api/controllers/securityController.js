@@ -18,6 +18,21 @@ class SecurityController {
             res.status(400).send({ message: error.message });
         }
     }
+
+    static async registerPermissionRoles(req, res) {
+        const { roleId, permissions } = req.body;
+
+        try {
+            const permissionRoles = await securityService
+                .registerPermissionRoles({ roleId, permissions });
+
+            res.status(201).send(permissionRoles);
+        } catch (error) {
+            console.error(error.message);
+            console.error(error.stack || error);
+            res.status(400).send({ message: error.message });
+        }
+    }
 }
 
 module.exports = SecurityController;
