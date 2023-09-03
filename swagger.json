@@ -1,1 +1,156 @@
-{}
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Study Mate",
+        "description": "Backend API for Final Year Practical Project.",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/auth/login": {
+            "post": {
+                "description": "Creation of a new user account",
+                "requestBody": {
+                    "description": "Required data for creating a new user account",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Login"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful login",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/LoginResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users": {
+            "post": {
+                "description": "Creation of a new user account",
+                "requestBody": {
+                    "description": "Required data for creating a new user account",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateUser"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "User created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CreateUserResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Some required field is missing"
+                    },
+                    "400": {
+                        "description": "Some error has occurred"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Login": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "user e-mail",
+                        "example": "testUser@studymate.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "password",
+                        "example": "123changeLater"
+                    }
+                }
+            },
+            "LoginResponse": {
+                "type": "object",
+                "properties": {
+                    "access_token": {
+                        "type": "string",
+                        "description": "authentication token",
+                        "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg1M2VmN2VlLWZiYjUtNDkyOS05MmExLTZlZjU4OGIyOGI1MSIsImVtYWlsIjoiYWRtaW5AdG9waWNzLmNvbSIsImlhdCI6MTY5Mzc3MDA0MCwiZXhwIjoxNjkzODMwMDQwfQ.PrvwDncWpVDeIXmFpbI8sHlBKjl90D5wG0nzDmARefg"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "username",
+                        "example": "testUser"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "user e-mail",
+                        "example": "testUser@studymate.com"
+                    }
+                }
+            },
+            "CreateUser": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "username",
+                        "example": "testUser"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "user e-mail",
+                        "example": "testUser@studymate.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "password",
+                        "example": "123changeLater",
+                        "format": "password"
+                    }
+                }
+            },
+            "CreateUserResponse": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "username",
+                        "example": "testUser"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "user e-mail",
+                        "example": "testUser@studymate.com"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "password",
+                        "example": "123changeLater"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "User UUID",
+                        "example": "853ef7ee-fbb5-4929-92a1-6ef588b28b51",
+                        "format": "uuid"
+                    }
+                }
+            }
+        }
+    }
+}

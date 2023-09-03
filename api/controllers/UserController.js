@@ -6,9 +6,9 @@ class UserController {
     static async register(req, res) {
         const { name, email, password } = req.body;
 
-        if (!name) throw new Error('Name is required');
-        if (!email) throw new Error('Email is required');
-        if (!password) throw new Error('Password is required');
+        if (!name) return res.status(422).send('No "name" provided');
+        if (!email) return res.status(422).send('No "email" provided');
+        if (!password) return res.status(422).send('No "password" provided');
 
         try {
             const user = await userService.register({ name, email, password });
