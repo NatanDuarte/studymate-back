@@ -29,6 +29,9 @@
                                 }
                             }
                         }
+                    },
+                    "401": {
+                        "description": "malformed token"
                     }
                 }
             }
@@ -150,6 +153,14 @@
                         "format": "uuid"
                     }
                 }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "description": "JWT authentication",
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
             }
         }
     }
