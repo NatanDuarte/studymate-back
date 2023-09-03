@@ -4,13 +4,11 @@ const authenticate = require('../middleware/authenticate');
 
 const router = Router()
 
-router.use(authenticate)
-
 router
     .post('/users', UserController.register)
-    .get('/users', UserController.getUsers)
-    .get('/users/:id', UserController.getUserById)
-    .put('/users/:id', UserController.editUser)
-    .delete('/users/:id', UserController.deleteUser);
+    .get('/users', authenticate, UserController.getUsers)
+    .get('/users/:id', authenticate, UserController.getUserById)
+    .put('/users/:id', authenticate, UserController.editUser)
+    .delete('/users/:id', authenticate, UserController.deleteUser);
 
 module.exports = router;
