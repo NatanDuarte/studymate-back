@@ -10,8 +10,12 @@ const socketAdapter = (server) => {
     io.on('connection', (socket) => {
         console.log(`a user connected ${socket.id}`);
 
-        socket.on('text_editor', (content) => {
-            socket.broadcast.emit('text_for_clients', content);
+        socket.on('room_selected', (roomId) => {
+            socket.join(roomId);
+        });
+
+        socket.on('text_editor', ({content, roomId}) => {
+            socket.to(roomId).emit('text_for_clients', content);
         });
 
     });
