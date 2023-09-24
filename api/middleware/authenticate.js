@@ -12,9 +12,10 @@ module.exports = async (req, res, next) => {
     try {
         verify(accessToken, jsonSecret.secret);
 
-        const { id, email } = await decode(accessToken);
+        const { id, email, name } = await decode(accessToken);
 
         req.userId = id;
+        req.username = name;
         req.userEmail = email;
 
         return next();
