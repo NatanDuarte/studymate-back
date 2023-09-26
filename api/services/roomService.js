@@ -30,10 +30,69 @@ class RoomService {
             const rooms = await db.room.findAll({
                 order: [['createdAt', 'DESC']],
             });
-    
+
             return rooms;
         } catch (error) {
             throw new Error(`Error fetching rooms: ${error.message}`);
+        }
+    }
+
+    async getById(id) {
+        try {
+            const room = await db.room.findOne({
+                where: {
+                    id: id
+                }
+            });
+
+            return room;
+        } catch (error) {
+            throw new Error(`Error getting room: ${error.message}`);
+        }
+    }
+
+    async getByAuthorId(id) {
+        try {
+            const room = await db.room.findAll({
+                where: {
+                    author_id: id
+                }
+            });
+
+            return room;
+        } catch (error) {
+            throw new Error(`Error getting room: ${error.message}`);
+        }
+    }
+
+    async edit(dto) {
+        try {
+            const {
+                id, title, description, primary_color, secondary_color
+            } = dto
+            const room = await this.getById(id);
+
+            if (title) room.title = title
+            if (description) room.description = description
+            if (primary_color) room.primary_color = primary_color
+            if (secondary_color) room.secondary_color = secondary_color
+
+            await room.save();
+            return room;
+        } catch (error) {
+            throw new Error(`Error editing room: ${error.message}`);
+        }
+    }
+
+    async delete(id) {
+        try {
+            await db.room.destroy({
+                where: {
+                    id: id
+                }
+            });
+        } catch (error) {
+            throw new Error(`Error deleting room: ${error.message}`);
         }
     }
 }

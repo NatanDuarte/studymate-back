@@ -69,8 +69,6 @@ class RoleService {
     }
 
     async delete(id) {
-        await this.getById(id);
-
         try {
             await db.roles.destroy({
                 where: {

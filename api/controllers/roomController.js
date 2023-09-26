@@ -23,7 +23,7 @@ class RoomController {
         }
     }
 
-    static async getAll(req, res) {
+    static async getAll(_, res) {
         try {
             const rooms = await roomService.getAll();
 
@@ -36,7 +36,22 @@ class RoomController {
 
     static async getById(req, res) {
         try {
+            const { id } = req.params;
+            const room = await roomService.getById(id);
 
+            res.status(200).json(room);
+        } catch (error) {
+            console.error(error.stack || error);
+            res.status(400).send({ message: error.message });
+        }
+    }
+
+    static async getByAuthorId(req, res) {
+        try {
+            const { id } = req.params;
+            const room = await roomService.getByAuthorId(id);
+
+            res.status(200).json(room);
         } catch (error) {
             console.error(error.stack || error);
             res.status(400).send({ message: error.message });
@@ -45,7 +60,17 @@ class RoomController {
 
     static async edit(req, res) {
         try {
+            const { id } = req.params;
+            const {
+                title, description, primary_color, secondary_color
+            } = req.body;
 
+            const dto = {
+                id, title, description, primary_color, secondary_color
+            }
+            const room = await roomService.edit(dto);
+
+            res.status(200).json(room);
         } catch (error) {
             console.error(error.stack || error);
             res.status(400).send({ message: error.message });
@@ -54,7 +79,10 @@ class RoomController {
 
     static async delete(req, res) {
         try {
+            const { id } = req.params;
+            await roomService.delete(id);
 
+            res.status(200).send({ message: 'Room deleted successfully' });
         } catch (error) {
             console.error(error.stack || error);
             res.status(400).send({ message: error.message });
