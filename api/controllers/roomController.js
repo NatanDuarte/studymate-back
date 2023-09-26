@@ -27,7 +27,7 @@ class RoomController {
         try {
             const rooms = await roomService.getAll();
 
-            res.status(201).send(rooms);
+            res.status(200).send(rooms);
         } catch (error) {
             console.error(error.stack || error);
             res.status(400).send({ message: error.message });
