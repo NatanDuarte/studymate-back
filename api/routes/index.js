@@ -6,6 +6,7 @@ const roles = require('./rolesRoute');
 const permission = require('./permissionRoute');
 const healthCheck = require('./healthCheckRoute');
 const security = require('./security');
+const room = require('./roomRoute');
 
 
 module.exports = app => {
@@ -16,6 +17,7 @@ module.exports = app => {
         user,
         roles,
         security,
-        permission
+        permission,
+        room
     )
 }
