@@ -8,12 +8,13 @@ const socketAdapter = (server) => {
     });
 
     io.on('connection', (socket) => {
-        socket.on('room_selected', (roomName) => {
-            socket.join(roomName);
+        socket.on('room_selected', (roomId) => {
+            socket.join(roomId);
+            console.log(`JOINED ROOM: ${roomId}`)
         });
 
-        socket.on('text_editor', ({content, roomName}) => {
-            socket.to(roomName).emit('text_for_clients', content);
+        socket.on('message', ({content, roomId}) => {
+            socket.to(roomId).emit('message', content);
         });
     });
 
