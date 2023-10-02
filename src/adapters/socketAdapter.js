@@ -10,11 +10,11 @@ const socketAdapter = (server) => {
     io.on('connection', (socket) => {
         socket.on('room_selected', (roomId) => {
             socket.join(roomId);
-            console.log(`JOINED ROOM: ${roomId}`)
         });
 
-        socket.on('message', ({content, roomId}) => {
-            socket.to(roomId).emit('message', content);
+        socket.on('message', (data) => {
+            const { message, username, roomId } = data;
+            io.to(roomId).emit('message', { username, message });
         });
     });
 
