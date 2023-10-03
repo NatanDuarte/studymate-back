@@ -25,7 +25,7 @@ class AuthService {
             expiresIn: 60000
         });
 
-        return { access_token: accessToken, username: user.name, email: user.email };
+        return { access_token: accessToken, id: user.id, username: user.name, email: user.email };
     }
 }
 
