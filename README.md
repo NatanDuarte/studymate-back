@@ -4,6 +4,8 @@ Backend API for Final Year Practical Project.
 
 ## Running locally
 
+peerjs --port 9000 --key peerjs --path /studymate
+
 * install dependencies:
 
 ```shell
