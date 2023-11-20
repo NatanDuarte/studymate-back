@@ -7,6 +7,7 @@ const permission = require('./permissionRoute');
 const healthCheck = require('./healthCheckRoute');
 const security = require('./security');
 const room = require('./roomRoute');
+const liveKitAuth = require('./liveKitAuth');
 
 
 module.exports = app => {
@@ -14,6 +15,7 @@ module.exports = app => {
         bodyParser.json(),
         healthCheck,
         auth,
+        liveKitAuth,
         user,
         roles,
         security,
