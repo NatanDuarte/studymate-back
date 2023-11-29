@@ -56,6 +56,16 @@ class UserService {
     async editUser(dto) {
         const user = await this.findById(dto.id);
 
+        const userExists = await db.Users.findOne({
+            where: {
+                email: dto.email
+            }
+        });
+
+        if (userExists) {
+            throw new Error('Email already exists');
+        }
+
         try {
             user.name = dto.name;
             user.email = dto.email;
